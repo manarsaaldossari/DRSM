@@ -1,0 +1,26 @@
+.answer-content {
+  display: flex;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  font-size: 1.8rem;
+  border: 0.1rem solid rgba(215, 189, 226, 0.5);
+  background-color: #212121;
+  border-radius:15px;
+  text-align: center;
+}
+h2{
+  color:#FDEDEC;
+}
+
+.answer-content:hover {
+  cursor: pointer;
+  background-color: rgba(215, 189, 226, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.answer-text {
+  padding: 1.5rem;
+  text-align: center;
+  color: rgb(253, 237, 236,0.6);
+}
