@@ -21,6 +21,7 @@ h2{
 
 .answer-text {
   padding: 1.5rem;
+  width: 100%;
   text-align: center;
   color: rgb(253, 237, 236,0.6);
 }
