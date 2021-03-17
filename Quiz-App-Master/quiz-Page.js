@@ -1,5 +1,7 @@
 const question = document.getElementById("quesiton");
 const choices = Array.from(document.getElementsByClassName("answer-text"));
+const progressText = document.getElementById("progressText");
+const scoreText = document.getElementById("score");
 
 let currentQuestion = {};
 
@@ -42,8 +44,19 @@ choices.forEach(choice => {
 
         acceptingAnswers = false;
         const selectedChoice = e.target;
-        const selectedAnswer = selectedChoice.dataset["number"];
-        nextQuestion();
+        const selectedAnswer = selectedChoice.dataset["num"];
+
+        const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+
+        if(classToApply == "correct"){
+          incrementScore(correct_Score);
+        }
+        selectedChoice.parentElement.classList.add(classToApply);
+        setTimeout(() =>{
+          selectedChoice.parentElement.classList.remove(classToApply);
+          nextQuestion();
+        }, 1000);
+
     });
 });
 
@@ -63,6 +76,8 @@ nextQuestion = () => {
     }
 
     counter++;
+    progressText.innerText = `Question ${counter}/${num_Question}`;
+    progressBarFull.style.width = `${(counter / num_Question) * 100}%`;
 
     const selectedIndex = Math.floor(Math.random() * available.length);
 
@@ -77,6 +92,11 @@ nextQuestion = () => {
 
     available.splice(selectedIndex, 1);
     acceptingAnswers = true;
+};
+
+incrementScore = num => {
+  score += num;
+  scoreText.innerText = score;
 };
 
 play();
