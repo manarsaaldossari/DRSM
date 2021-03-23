@@ -20,19 +20,19 @@ const num_Question = 2;
 
 let questions = [{
         question: "4+4?",
-        choice1: "<8>",
-        choice2: "<2>",
-        choice3: "<1>",
-        choice4: "<0>",
+        choice1: "8",
+        choice2: "2",
+        choice3: "1",
+        choice4: "0",
         answer: 1
     },
     {
-      question: "4-4?",
-      choice1: "<8>",
-      choice2: "<2>",
-      choice3: "<1>",
-      choice4: "<0>",
-      answer: 4
+        question: "4-4?",
+        choice1: "8",
+        choice2: "2",
+        choice3: "1",
+        choice4: "0",
+        answer: 4
     },
 
 ];
@@ -48,13 +48,13 @@ choices.forEach(choice => {
 
         const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
-        if(classToApply == "correct"){
-          incrementScore(correct_Score);
+        if (classToApply == "correct") {
+            incrementScore(correct_Score);
         }
         selectedChoice.parentElement.classList.add(classToApply);
-        setTimeout(() =>{
-          selectedChoice.parentElement.classList.remove(classToApply);
-          nextQuestion();
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(classToApply);
+            nextQuestion();
         }, 1000);
 
     });
@@ -72,7 +72,7 @@ play = () => {
 nextQuestion = () => {
     if (available.length === 0) {
         localStorage.setItem("mostRecentScore", score);
-        return window.location.assign("/end.html");
+        return window.location.assign("end.html");
     }
 
     counter++;
@@ -85,7 +85,7 @@ nextQuestion = () => {
 
     question.innerText = currentQuestion.question;
 
-    choices.forEach(  choice => {
+    choices.forEach(choice => {
         const number = choice.dataset["num"];
         choice.innerText = currentQuestion["choice" + number];
     });
@@ -95,8 +95,8 @@ nextQuestion = () => {
 };
 
 incrementScore = num => {
-  score += num;
-  scoreText.innerText = score;
+    score += num;
+    scoreText.innerText = score;
 };
 
 play();
