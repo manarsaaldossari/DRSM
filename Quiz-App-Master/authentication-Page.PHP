@@ -15,8 +15,10 @@
 <?php
 
 $iserror = false;
-$formerror = array("reapetedUsername"=>false,"passwordMatch"=>false,
-                   "incorrectUsername"=>false,"inCorrectPassowrd"=>false);
+
+$usernameError = array("reapetedUsername"=>false,"incorrectUsername"=>false); 
+
+$passwordError =array("passwordMatch"=>false,"inCorrectPassowrd"=>false);
 
 $errorMessage= array("reapetedUsername"=>"Username already exists",
                     "passwordMatch"=>"The two passwords do not match",
@@ -40,7 +42,7 @@ if($logIn || $sinUp){
     if($sinUp){
         $password1 = $_POST["password1"];
         if(strcmp($password0,$password1)!=0){
-            $formerror["passwordMatch"] = true;
+            $passwordError["passwordMatch"] = true;
             $iserror = true;
         }
     }
@@ -61,7 +63,7 @@ if($logIn || $sinUp){
         //username match
         if($usernameResult->num_rows>0){
             if($sinUp){
-                $formerror["reapetedUsername"]=true;
+                $usernameError["reapetedUsername"]=true;
                 $iserror = true;
             }
             elseif($logIn){
@@ -69,7 +71,7 @@ if($logIn || $sinUp){
             $savedPassword = $row["password"];
             $maxScore = $row["maxScore"];
             if(strcmp($savedPassword,$password0)!=0){
-                $formerror["inCorrectPassowrd"]=true;
+                $passwordError["inCorrectPassowrd"]=true;
                 $iserror = true;
             }
             }
@@ -81,76 +83,77 @@ if($logIn || $sinUp){
                 $maxScore = 0 ;
             }
             elseif($logIn){
-                $formerror["incorrectUsername"]=true;
+                $usernameError["incorrectUsername"]=true;
                 $iserror = true;
             }
         }
+        //Close MySQL Connection
+        mysqli_close($database);
     }
-    //Close MySQL Connection
-    mysqli_close($database);
+    
     if(!$iserror){
         setcookie("username",$username,time()+Five_dayes);
         setcookie("maxScore",$maxScore,time()+Five_dayes);
+        
         header("Location:index.html", true, 301);
         exit();  
-        }  
+        } 
+
 }
-    
 
+    //Page Rendreing
+    print("<div class='content-div'><div id='home' class='flex-center flex-column'>
+            <span class='header'>" );
+    if($logIn_start || $logIn){
+        print("Here you can Log In
+            <h6>welcome back :)</h6></span>");
+    }else{
+        print("Here you can Sing Up
+            <h6>lets join us :)</h6></span>");
+    }
+    //username
+    print("<form action='authentication-Page.PHP' method='post'>
+        <label>Username ");
+    if($iserror&&(in_array(true,$usernameError))){
+        foreach ($usernameError as $key => $value) {
+            if($value){
+                print("<span class='error'> * ".$errorMessage[$key]."</span> ");
+                break;
+            }
+        } 
+    }
 
+    print("</label><br><input class='text' type='text' name='username' ");
 
- //if($iserror&&!$formerror["usernameerror"])
- /*
-print( "<div class='content-div'>
-<div id='home' class='flex-center flex-column'>
-    <span class='header'> Test your knowlge and have fun
-    <h6>lets join us :)</h6>
-    </span><form action='authentication-Page.PHP' method='post'><label>Username <span class='error'> *");
-    if($formerror["usernameerror"])
-        print("Username already exists");
-     
-    print("</span> </label><br><input class='text' type='text' name='username' ");
-    if($iserror&&(!$formerror["usernameerror"])){
-        print("value='$username'");}
-    
-    print("placeholder='Enter your name' required><br><label>Password <span class='error'> *");
-    if($formerror["passwordMatcherror"])
-        print("The two passwords do not match");
-            
-    print("</span></label><br>".
-          "<input class='text' type='password' name='password0' placeholder='write password' required><br>");
-    if($logIn){
-        print("<label>Confirm Password <span class='error'> *</span></label><br>
-        <input class='text' type='password' name='password1' placeholder='rewrite password'required><br>");
+    if($iserror&&(!in_array(true,$usernameError))){
+        print("value='$username'");
+    }
+    //passowrd 
+    print("placeholder='Enter your name' required><br><label>Password ");
+    if($iserror&&(in_array(true,$passwordError))){
+        foreach ($passwordError as $key => $value) {
+            if($value){
+                print("<span class='error'> * ".$errorMessage[$key]."</span> ");
+                break;
+            }
+        } 
     }
             
-            print("<input class='button' type='submit' name='submit' value='Sign Up'>
-            <a class='button' href='login-page.html'>Log IN</a>
-        </form>
-</div>
-</div>");*/
-
+    print("</label><br>"."<input class='text' type='password' name='password0' placeholder='write password' required><br>");
+    if($sinUp||$sinUp_start){
+        print("<label>Confirm Password </label><br>
+        <input class='text' type='password' name='password1' placeholder='rewrite password'required><br>");
+    }
+    //sin up or log in button
+    if($sinUp||$sinUp_start){
+        print("<input class='button' type='submit' name='sinUp' value='Sign Up'><br>");
+    }else{
+        print("<input class='button' type='submit' name='logIn' value='Log In'><br>");
+    }
+    //start page
+    print("<span class='header'> <a href='start-Page.html'> < Start page</a></span>"."</form></div></div>");
 
 ?>
-<div class='content-div'>
-<div id='home' class='flex-center flex-column'>
-    <span class='header'> Test your knowlge and have fun
-    <h6>lets join us :)</h6>
-    </span><form action='authentication-Page.PHP' method='post'><label>Username <span class='error'> * Username already exists</span> </label><br>
-    <input class='text' type='text' name='username' value='$username' placeholder='Enter your name' required><br>
-    <label>Password <span class='error'> * The two passwords do not match</span></label><br>
-    <input class='text' type='password' name='password0' placeholder='write password' required><br>
-    <label>Confirm Password <span class='error'> *</span></label><br>
-    <input class='text' type='password' name='password1' placeholder='rewrite password'required><br>
-          
-    <input class='button' type='submit' name='sinUp' value='Sign Up'><br>
-    <input class='button' type='submit' name='logIn' value='Log In'>
-            <!-- <a class='button' href='login-page.html'>Log IN</a> -->
-            <span class='header'> <a href="start-Page.html"> < Start page</a></span>
-        </form>
-</div>
-</div>
-
 </body>
 
 </html>
