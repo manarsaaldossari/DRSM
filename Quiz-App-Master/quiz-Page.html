@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quick Quiz - Play</title>
-    <link rel="stylesheet" href="general.css" />
-    <link rel="stylesheet" href="quiz-Page.css" />
+    <link rel="stylesheet" href="general.CSS" />
+    <link rel="stylesheet" href="quiz-Page.CSS" />
 
-  </head>
+</head>
 
 
-  <body>
+<body>
 
     <div class="content-div">
 
-      <div id="quiz" class="justify-center flex-column">
-        <div id="hud">
-          <div id="hud-item">
-            <p id="progressText" class="hud-prefix">
-              Question
-            </p>
-            <div id="progressBar">
-              <div id="progressBarFull"></div>
+        <div id="quiz" class="justify-center flex-column">
+            <div id="hud">
+                <div id="hud-item">
+                    <p id="progressText" class="hud-prefix">
+                        Question
+                    </p>
+                    <div id="progressBar">
+                        <div id="progressBarFull"></div>
+                    </div>
+                </div>
+                <div id="hud-item">
+                    <p class="hud-prefix">
+                        Score
+                    </p>
+                    <h1 class="hud-main-text" id="score">
+                        0
+                    </h1>
+                </div>
             </div>
-          </div>
-          <div id="hud-item">
-            <p class="hud-prefix">
-              Score
-            </p>
-            <h1 class="hud-main-text" id="score">
-              0
-            </h1>
-          </div>
+            <h2 id="quesiton"> The Answer to this question is </h2>
+            <div class="answer-content">
+                <p class="answer-text" data-num="1">Answer 1</p>
+            </div>
+            <div class="answer-content">
+                <p class="answer-text" data-num="2">Answer 2</p>
+            </div>
+            <div class="answer-content">
+                <p class="answer-text" data-num="3">Answer 3</p>
+            </div>
+            <div class="answer-content">
+                <p class="answer-text" data-num="4">Answer 4</p>
+            </div>
         </div>
-        <h2 id="quesiton"> The Answer to this question is  </h2>
-        <div class="answer-content">
-          <p class="answer-text" data-num="1">Answer 1</p>
-        </div>
-        <div class="answer-content">
-          <p class="answer-text" data-num="2">Answer 2</p>
-        </div>
-        <div class="answer-content">
-          <p class="answer-text" data-num="3">Answer 3</p>
-        </div>
-        <div class="answer-content">
-          <p class="answer-text" data-num="4">Answer 4</p>
-        </div>
-      </div>
 
     </div>
     <script src="quiz-Page.js"></script>
-  </body>
+</body>
+
 </html>

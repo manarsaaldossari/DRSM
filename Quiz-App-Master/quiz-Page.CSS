@@ -1,63 +1,69 @@
 .answer-content {
-  display: flex;
-  margin-bottom: 0.5rem;
-  width: 100%;
-  font-size: 1.8rem;
-  border: 0.1rem solid rgba(215, 189, 226, 0.5);
-  background-color: #212121;
-  border-radius:15px;
-  text-align: center;
+    display: flex;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 1.8rem;
+    border: 0.1rem solid rgba(215, 189, 226, 0.5);
+    background-color: #212121;
+    border-radius: 15px;
+    text-align: center;
 }
-h2{
-  color:#FDEDEC;
+
+h2 {
+    color: #FDEDEC;
 }
 
 .answer-content:hover {
-  cursor: pointer;
-  background-color: rgba(215, 189, 226, 0.5);
-  transform: translateY(-0.1rem);
-  transition: transform 150ms;
+    cursor: pointer;
+    background-color: rgba(215, 189, 226, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
 }
 
 .answer-text {
-  padding: 1.5rem;
-  width: 100%;
-  text-align: center;
-  color: rgb(253, 237, 236,0.6);
-}
-.answer-text:hover{
-  color: white;
+    padding: 1.5rem;
+    width: 100%;
+    text-align: center;
+    color: rgb(253, 237, 236, 0.6);
 }
 
-.correct:hover, .correct{
-  background-color: #28a745;
+.answer-text:hover {
+    color: white;
 }
-.incorrect:hover, .incorrect{
-  background-color: #dc3545;
+
+.correct:hover,
+.correct {
+    background-color: #28a745;
+}
+
+.incorrect:hover,
+.incorrect {
+    background-color: #dc3545;
 }
 
 #hud {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .hud-prefix {
-  text-align: center;
-  font-size: 2rem;
+    text-align: center;
+    font-size: 2rem;
 }
 
 .hud-main-text {
-  text-align: center;
+    text-align: center;
 }
+
 #progressBar {
-  width: 20rem;
-  height: 4rem;
-  border: 0.3rem solid rgba(215, 189, 226, 0.5);
-  margin-top: 1.5rem;
+    width: 20rem;
+    height: 4rem;
+    border: 0.3rem solid rgba(215, 189, 226, 0.5);
+    margin-top: 1.5rem;
 }
 
 #progressBarFull {
-  height: 3.4rem;
-  background-color: rgba(215, 189, 226, 0.5);
-  width: 0%;
+    height: 3.4rem;
+    background-color: rgba(215, 189, 226, 0.5);
+    width: 0%;
 }
