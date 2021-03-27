@@ -202,3 +202,8 @@ label {
 input::placeholder {
     color: rgb(138, 138, 138, 0.5);
 }
+
+mark {
+    background-color:beige ;
+    color:dimgrey
+  }

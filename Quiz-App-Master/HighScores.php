@@ -10,33 +10,88 @@
 </head>
 <body>
     <?php
-$servername = "localhost";
-    $username = "root";
+   // $currentscore = $_GET["score"]; //to get varible from js page
+
+
+    $servername = "localhost";
+    $uname = "root";
     $password = "";
     $database = "quiz-app";
     //to connect
-    $conn = mysqli_connect($servername,$username,$password,$database);
+    $conn = mysqli_connect($servername,$uname,$password,$database);
     //to check conection
     if(!$conn){
         die("connection faild: ".mysqli_connect_error());
     }
 
 
+    $mquery ="SELECT `maxScore` FROM `user` ORDER BY maxScore ";
+    $cquery = "SELECT `username` , `maxScore` FROM `user` WHERE username = '".$_COOKIE["username"]."'";
     $query = "SELECT `username`, `maxScore` FROM `user` ORDER BY maxScore";
+
     if (!($result = mysqli_query($conn,$query))){
         echo "could not execute quere!".mysqli_error();
         die;
     }
+    if (!($cresult = mysqli_query($conn,$cquery))){
+        echo "could not execute quere!".mysqli_error();
+        die;
+    }
+    if (!($mresult = mysqli_query($conn,$mquery))){
+        echo "could not execute quere!".mysqli_error();
+        die;
+    }
+    ?>
+      
 
     
-?>
 <div class='content-div'>
         <div id='highscore' class='flex-center flex-column'>
+<?php
+
+$rank_count =1;
+while($mrow = mysqli_fetch_row($mresult)){
+    foreach($mrow as  $mvalue){
+    if($mvalue >= $currentscore)
+     $rank_count++;
+    }
+    $rank_count++;
+}
+?>
+        <table border ="2">
+            <thead>
+                <tr>
+                    <th><mark>Rank</mark></th>
+                    <th><mark>User Name </mark></th>
+                    <th><mark>High Score </mark> </th>
+                    <th><mark>Current Score </mark></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <?php
+                   while ($crow = mysqli_fetch_row($cresult)){
+                    print("<tr>");
+                    print("<td> $rank_count </td>");
+                    foreach($crow as  $cvalue)
+                    print("<td>$cvalue</td>");
+                    print("<td> ". $currentscore ." </td>");                    
+                    print("</tr>");
+                    }
+                   ?>
+                </tr>
+            </tbody>
+        </table>   
+</div></div>
+
+<br>
+        <div class='content-div'>
+        <div id='highscore' class='flex-center flex-column'>     
 <table>
     <caption><h3 class='header'> High Score Table :</h3></caption>
     <thead>
     <tr>
-        <th>Place</th>
+        <th>Rank</th>
         <th>Name</th>
         <th>Score</th>
     </tr>
@@ -45,7 +100,8 @@ $servername = "localhost";
 <tbody>
     <?php
     $count=1;
-    while ($row = mysqli_fetch_row($result)){
+    while ($count != 11){
+        $row = mysqli_fetch_row($result);
         print("<tr>");
         print("<td>".$count." .</td>");
         foreach($row as  $value)
