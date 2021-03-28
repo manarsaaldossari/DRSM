@@ -60,7 +60,7 @@ while($dmrow = mysqli_fetch_row($dmresult)){
     if($key == "maxScore" || $umax <= $value)
      $rank_count++;
 }}
-$rank_count++;
+
 ?>
 
         <table class=utable  border ='2'>
