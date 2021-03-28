@@ -32,7 +32,7 @@ const num_Question = 10;
     }
 ];*/
 
-let url = "https://opentdb.com/api.php?amount=10&category=18&type=multiple";
+let url = `https://opentdb.com/api.php?amount=${num_Question}&category=18&type=multiple`;
 fetch(url).then(resp => {
     return resp.json();
 }).then(apiQuestions => {
@@ -89,7 +89,10 @@ play = () => {
 nextQuestion = () => {
     if (available.length === 0) {
         localStorage.setItem("mostRecentScore", score);
-        return window.location.assign("end.html");
+        //"key=value; expires=Fri, 03 Aug 2018 12:00:00 UTC; path=/";
+        document.cookie = `currentScore=${score}; path=end-Page.php;`;
+        console.log("here before endpage assign");
+        return window.location.assign("end-Page.php");
     }
 
     counter++;
