@@ -22,8 +22,8 @@
         die("connection faild: ".mysqli_connect_error());
     }
     
-    $query = "SELECT `username`, `maxScore` FROM `user` ORDER BY maxScore";
-    $dmquery="SELECT `maxScore` FROM `user` ORDER BY maxScore";
+    $query = "SELECT `username`, `maxScore` FROM `user` ORDER BY maxScore DESC";
+    $dmquery="SELECT `maxScore` FROM `user` ORDER BY maxScore DESC";
     if (!($result = mysqli_query($conn,$query))){
         echo "could not execute quere!".mysqli_error();
         die;
