@@ -13,7 +13,8 @@
 <div class='content-div'>
         <div id='end' class='flex-center flex-column'>
 
-            <h1> Quiz Time</h1>
+        <img src="Quiz_Time.png" alt="text image on Quiz Time" width=1000px hight=500px><br>
+        
     <?php
         $username = $_COOKIE["username"];
         $currentScore = isset($_COOKIE["currentScore"])?$_COOKIE["currentScore"]:0;

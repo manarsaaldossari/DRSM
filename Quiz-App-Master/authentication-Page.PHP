@@ -105,10 +105,10 @@ if($logIn || $sinUp){
     print("<div class='content-div'><div id='home' class='flex-center flex-column'>
             <span class='header'>" );
     if($logIn_start || $logIn){
-        print("Here you can Log In
+        print("<img src='Header_login_page.png' alt='text image on login page' width=1000px hight=500px><br>
             <h6>welcome back :)</h6></span>");
     }else{
-        print("Here you can Sing Up
+        print("<img src='Header_signup_page.png' alt='text image on signup page' width=1000px hight=500px><br>
             <h6>lets join us :)</h6></span>");
     }
     //username
