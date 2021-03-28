@@ -203,7 +203,34 @@ input::placeholder {
     color: rgb(138, 138, 138, 0.5);
 }
 
-mark {
-    background-color:beige ;
-    color:dimgrey
+/* Tables */
+
+.utable{
+    width:fit-content;
+    height: fit-content;
+    padding: 2px 6px;
+}
+
+  table, th, td {
+    font-size: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    color: darkgrey;
+    width: 80%;
+    padding: 2px 6px;
   }
+  
+
+  tr:hover {
+      background-color:#555053;
+    
+  }
+   th ,td{
+    border-bottom: 1px solid beige;
+    width: auto;
+    height: 40px;
+   } 
+   
+   th{
+       background-color: rgb(61, 60, 60);
+   }
