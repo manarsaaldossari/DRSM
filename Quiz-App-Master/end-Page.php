@@ -44,7 +44,7 @@
         print("Max Score ".$maxScore." </span> </span>");
     ?>
             <a class='button' href='quiz-Page.html'>Play Again</a>
-            <a class='button' href='index.html'>Go Home</a>
+            <a class="button" href="Leaderboard.php">Leader Board</a>
         </div>
     </div>
 </body>

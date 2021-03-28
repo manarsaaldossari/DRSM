@@ -14,7 +14,7 @@
     $servername = "localhost";
     $uname = "root";
     $password = "";
-    $database = "quiz-app";
+    $database = "Quiz-App";
     //to connect
     $conn = mysqli_connect($servername,$uname,$password,$database);
     //to check conection
