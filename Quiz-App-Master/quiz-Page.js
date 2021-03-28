@@ -97,7 +97,7 @@ nextQuestion = () => {
 
     counter++;
     progressText.innerText = `Question ${counter}/${num_Question}`;
-    progressBarFull.style.width = `${(counter / num_Question) * 100}%`;
+    progressBarFull.style.width = `${((counter-1) / num_Question) * 100}%`;
 
     const selectedIndex = Math.floor(Math.random() * available.length);
 

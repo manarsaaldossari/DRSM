@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
     <link rel="stylesheet" href="general.CSS" />
-    <link rel="stylesheet" href="quiz-page.CSS" />
+    <link rel="stylesheet" href="quiz-Page.CSS" />
 </head>
 <body>
     <?php
@@ -49,8 +49,8 @@
       
 
     
-<div class='content-div'>
-        <div id='Leaderboard' class='flex-center flex-column'>
+<div >
+        <div id='Leaderboard' class=' class=content-div flex-center flex-column'>
 
     <?php
 
@@ -64,12 +64,12 @@ while($dmrow = mysqli_fetch_row($dmresult)){
 ?>
 
         <table class=utable  border ='2'>
-        <h3 class='header'> <img src="Leader_Board.png" alt=" text image og Leader board" width=1000px hight=500px></h3>
+        <h3 class='.header_board'> <img src="Leader_Board.png" alt=" text image og Leader board" width=1000px hight=500px></h3>
             <thead>
                 <tr>
-                    <th><img src="Rank.png" alt="rank lable image" width=100px hight=50px></th>
-                    <th><img src="Name.png" alt="name lable image" width=100px hight=50px> </th>
-                    <th><img src="MaxScore.png" alt="Max Score lable image" width=100px hight=50px> </th>
+                    <th><img class = "image" src="Rank.png" alt="rank lable image" width=115.5px hight=62.27px></th>
+                    <th><img class = "image" src="Name.png" alt="name lable image" width=100px hight=50px> </th>
+                    <th><img class = "image" src="MaxScore.png" alt="Max Score lable image" width=100px hight=50px> </th>
                 </tr>
             </thead>
             <tbody>
@@ -88,13 +88,13 @@ while($dmrow = mysqli_fetch_row($dmresult)){
         </table>   
 </div></div>
 
-        <div class='content-div'>
+        <div > <br> <br>
         <div id='Leaderboard' class='flex-center flex-column'>     
 <table>
     <tr>
-        <th><img src="Rank.png" alt="rank lable image" width=300px hight=200px></th>
-        <th><img src="Name.png" alt="name lable image" width=300px hight=200px> </th>
-        <th><img src="MaxScore.png" alt="Max Score lable image" width=300px hight=200px> </th>
+        <th><img class = "image" src="Rank.png" alt="rank lable image" width=300px hight=200px ></th>
+        <th><img calss ="image" src="Name.png" alt="name lable image" width=300px hight=200px> </th>
+        <th><img calss ="image" src="MaxScore.png" alt="Max Score lable image" width=300px hight=200px> </th>
     </tr>
 </thead>
 

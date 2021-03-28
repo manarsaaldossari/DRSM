@@ -28,7 +28,7 @@ h1 {
 }
 
 h6 {
-    font-size: 50px;
+    font-size: 1.6rem;
     color: #b4b2b4;
     display: block;
     width: 100%;
@@ -51,6 +51,13 @@ a:hover {
     font-weight: 700;
     display: block;
     margin-bottom: 3rem;
+    color: #ddc6d5;
+    /*color: #e7daec;*/
+}
+
+.header_board {
+    display: block;
+    margin-bottom: 0rem;
     color: #ddc6d5;
     /*color: #e7daec;*/
 }
@@ -216,34 +223,56 @@ input::placeholder {
     color: rgb(138, 138, 138, 0.5);
 }
 
+
 /* Tables */
 
-.utable{
-    width:fit-content;
+.utable {
+    width: fit-content;
     height: fit-content;
     padding: 2px 6px;
 }
 
-  table, th, td {
+table,
+th,
+td {
     font-size: large;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     color: darkgrey;
     width: 80%;
     padding: 2px 6px;
-  }
-  
+}
 
-  tr:hover {
-      background-color:#555053;
-    
-  }
-   th ,td{
+tr:hover {
+    background-color: #555053;
+}
+
+
+/*th {
+    border-bottom: 1px solid beige;
+    width: 300px;
+    height: 200px;
+}*/
+
+th,
+td {
     border-bottom: 1px solid beige;
     width: auto;
     height: 40px;
-   } 
-   
-   th{
-       background-color: rgb(61, 60, 60);
-   }
+}
+
+th {
+    background-color: rgb(61, 60, 60);
+}
+
+
+/*Image*/
+
+image {
+    /* This is where magic happens*/
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
