@@ -50,7 +50,7 @@
 
     
 <div class='content-div'>
-        <div id='highscore' class='flex-center flex-column'>
+        <div id='Leaderboard' class='flex-center flex-column'>
 
     <?php
 
