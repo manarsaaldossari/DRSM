@@ -23,7 +23,7 @@
     }
     
     $query = "SELECT `username`, `maxScore` FROM `user` ORDER BY maxScore DESC";
-    $dmquery="SELECT `maxScore` FROM `user` ORDER BY maxScore DESC";
+    $dmquery="SELECT `maxScore` FROM `user` ORDER BY maxScore DESC";//list 15 5 0 0 0
     if (!($result = mysqli_query($conn,$query))){
         echo "could not execute quere!".mysqli_error();
         die;
@@ -35,7 +35,7 @@
     }
 
     $uquery = "SELECT `username` , `maxScore` FROM `user` WHERE username = '".$_COOKIE["username"]."'";
-    $mquery = "SELECT `maxScore` FROM `user` WHERE username = '".$_COOKIE["username"]."'";
+    $mquery = "SELECT `maxScore` FROM `user` WHERE username = '".$_COOKIE["username"]."'";//5
     if (!($uresult = mysqli_query($conn,$uquery))){
         echo "could not execute quere!".mysqli_error();
         die;
@@ -45,6 +45,8 @@
         echo "could not execute quere!".mysqli_error();
         die;
     }
+
+     $umax1= mysqli_fetch_row($umax);
     ?>
       
 
@@ -54,12 +56,14 @@
 
     <?php
 
-$rank_count =1;
-while($dmrow = mysqli_fetch_row($dmresult)){
-    foreach($dmrow as $key => $value){
-    if($key == "maxScore" || $umax <= $value)
-     $rank_count++;
-}}
+       $rank_count =1;
+        
+         while($dmrow = mysqli_fetch_row($dmresult)){
+             foreach($dmrow as $dmvalue){
+              if($umax1[0] < $dmvalue)
+              $rank_count++ ;
+              else break;
+            } }
 
 ?>
 
@@ -101,10 +105,12 @@ while($dmrow = mysqli_fetch_row($dmresult)){
 <tbody>
     <?php
     $count=1;
-    while ($count != 11){
+
+    while ($count != 10){
         $row = mysqli_fetch_row($result);
+
         print("<tr>");
-        print("<td>".$count." .</td>");
+        print("<td>".$count." .</td>");   
         foreach($row as $value){
         print("<td>$value</td>");}
         print("</tr>");
