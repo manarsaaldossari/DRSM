@@ -56,11 +56,11 @@
 
     <?php
 
-       $rank_count =1;
+       $rank_count =0;
         
          while($dmrow = mysqli_fetch_row($dmresult)){
              foreach($dmrow as $dmvalue){
-              if($umax1[0] < $dmvalue)
+              if($umax1[0] <= $dmvalue)
               $rank_count++ ;
               else break;
             } }
