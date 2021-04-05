@@ -18,4 +18,5 @@ Quiz Time is an app that allows the user to have its own account to test their k
 
 ## Demo
 
-[![Demo Doccou alpha](https://j.gifs.com/vlKoVm.gif)](https://gifs.com/gif/vlKoVm)
+[![https://j.gifs.com/mOlQr0.gif)](https://gifs.com/gif/demo-mOlQr0)
+
