@@ -19,10 +19,6 @@ Quiz Time is an app that allows the user to have its own account to test their k
 >   - JavaScript
 >   - Php
 
-### User Interaction (flow chart)
-<img src="Images/Flowchart1.jpg" height="800">
-<img src="Images/Flowchart2.jpg" height="800">
-<img src="Images/Flowchart3.jpg" width="450">
 
 ### Some screenshot of the Quizapp
 >### Start page:
@@ -48,7 +44,13 @@ Quiz Time is an app that allows the user to have its own account to test their k
 [![Demo Doccou alpha](https://j.gifs.com/mOlQr0.gif)](https://gifs.com/gif/demo-mOlQr0)
 
 
-## Version
+### User Interaction (flow chart)
+<img src="Images/Flowchart1.jpg" height="800">
+<img src="Images/Flowchart2.jpg" height="800">
+<img src="Images/Flowchart3.jpg" width="450">
+
+
+## Versions
 
 - phpMyAdmin SQL Dump version 5.0.4
 - XAMPP Version: 8.0.3
