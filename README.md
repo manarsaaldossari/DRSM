@@ -25,19 +25,19 @@ Quiz Time is an app that allows the user to have its own account to test their k
 <img src="Images/Flowchart3.jpg" width="450">
 
 ### Some screenshot of the Quizapp
-Start page:
+>- Start page:
 
 <img src="Images/screen1.jpg" height="500" width="500">
 
-Log in page when the user enter wrong password:
+#### >- Log in page when the user enter wrong password:
 
 <img src="Images/screen2.jpg" height="500" width="500">
 
-Questions page:
+#### >- Questions page:
 
 <img src="Images/screen3.jpg" height="500" width="500">
 
-Leader board page:
+#### >- Leader board page:
 
 <img src="Images/screen4.jpg" height="500" width="500">
 
@@ -46,3 +46,12 @@ Leader board page:
 ## Demo
 
 [![Demo Doccou alpha](https://j.gifs.com/mOlQr0.gif)](https://gifs.com/gif/demo-mOlQr0)
+
+
+## Version
+
+- phpMyAdmin SQL Dump version 5.0.4
+- XAMPP Version: 8.0.3
+- PHP Version: 8.0.2
+- HTML Version: 5
+- JavaScriptVersion: 1.7
