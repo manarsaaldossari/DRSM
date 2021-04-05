@@ -14,18 +14,18 @@ Quiz Time is an app that allows the user to have its own account to test their k
 ### Some screenshot of the Quizapp
 Start page:
 
-<img src="Images/screen1.jpg">
+<img src="Images/screen1.jpg" height="600">
 
 Log in page when the user enter wrong password:
 
-<img src="Images/screen2.jpg">
+<img src="Images/screen2.jpg" height="600">
 
 Questions page:
 
-<img src="Images/screen3.jpg">
+<img src="Images/screen3.jpg" height="600">
 
 Leader board page:
-<img src="Images/screen4.jpg">
+<img src="Images/screen4.jpg" height="600">
 
 ### Technologies Used In Application
 >- XAMAP
