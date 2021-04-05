@@ -13,7 +13,7 @@
 <div class='content-div'>
         <div id='end' class='flex-center flex-column'>
 
-        <img src="Quiz_Time.png" alt="text image on Quiz Time" width=1000px hight=500px><br>
+        <img src="images/Quiz_Time.png" alt="text image on Quiz Time" width=1000px hight=500px><br>
         
     <?php
         $username = $_COOKIE["username"];
