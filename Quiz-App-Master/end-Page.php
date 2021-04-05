@@ -18,7 +18,7 @@
     <?php
         $username = $_COOKIE["username"];
         $currentScore = isset($_COOKIE["currentScore"])?$_COOKIE["currentScore"]:0;
-        $databaseName = "Quiz-App";
+        $databaseName = "Quiz_App";
         $database = mysqli_connect( "localhost","root", "", $databaseName);
         if(!$database){
             die("database connection faild: ".mysqli_connect_error());

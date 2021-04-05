@@ -48,38 +48,45 @@ if($logIn || $sinUp){
     }
     if(!$iserror){
         // DB Variables connection variuble
-        $databaseName = "Quiz-App";
+        $databaseName = "Quiz_App";
         $database = mysqli_connect( "localhost","root", "", $databaseName);
         if(!$database){
             die("database connection faild: ".mysqli_connect_error());
         }
         //Querys
         $usernameMatch_Query  = "SELECT * FROM user WHERE username='$username' LIMIT 1";
-        $insertUser_Query = "INSERT INTO `user`(`username`, `password`) VALUES (\"$username\",\"$password0\")";
+        $insertUser_Query = "INSERT INTO `user`(`username`, `password0`) VALUES (\"$username\",\"$password0\")";
 
 
         //check username
         $usernameResult = mysqli_query($database,$usernameMatch_Query);
+        
         //username match
         if($usernameResult->num_rows>0){
             if($sinUp){
                 $usernameError["reapetedUsername"]=true;
                 $iserror = true;
+                
             }
             elseif($logIn){
             $row = $usernameResult->fetch_assoc();
-            $savedPassword = $row["password"];
+            $savedPassword = $row["password0"];
             $maxScore = $row["maxScore"];
             if(strcmp($savedPassword,$password0)!=0){
                 $passwordError["inCorrectPassowrd"]=true;
                 $iserror = true;
             }
             }
+       
         //username no match
+        
         }else{
+            
             if($sinUp){
+                print("Finish");
                 if(!(mysqli_query($database,$insertUser_Query)))
-                    die(mysqli_error()."</body></html>");
+                    die(mysqli_error()."nnnnnn</body></html>");
+                    print("ffff");
                 $maxScore = 0 ;
             }
             elseif($logIn){
@@ -87,7 +94,9 @@ if($logIn || $sinUp){
                 $iserror = true;
             }
         }
+        print("after");
         //Close MySQL Connection
+        print("What");
         mysqli_close($database);
     }
     

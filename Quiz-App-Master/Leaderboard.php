@@ -14,7 +14,7 @@
     $servername = "localhost";
     $uname = "root";
     $password = "";
-    $database = "Quiz-App";
+    $database = "Quiz_App";
     //to connect
     $conn = mysqli_connect($servername,$uname,$password,$database);
     //to check conection
@@ -56,14 +56,28 @@
 
     <?php
 
-       $rank_count =0;
-        
-         while($dmrow = mysqli_fetch_row($dmresult)){
-             foreach($dmrow as $dmvalue){
-              if($umax1[0] <= $dmvalue)
-              $rank_count++ ;
-              else break;
-            } }
+        $count=0;
+        $prev = 100000;
+        $rank = 1;
+        #print("<h1>HERE = ".$umax1[0]."</h1> ");
+        while($dmrow = mysqli_fetch_row($dmresult)){
+            
+            if ($umax1[0] < $dmrow[0]){
+                if($dmrow[0] < $prev){
+                    $rank +=1;
+                    $prev = $dmrow[0];
+                }
+            }
+            else {
+                break;
+            }
+
+
+            }
+
+         
+
+
 
 ?>
 
@@ -81,7 +95,7 @@
                 <?php
                    while ($urow = mysqli_fetch_row($uresult)){
                     print("<tr>");
-                    print("<td> $rank_count </td>");
+                    print("<td> $rank </td>");
                     foreach($urow as  $uvalue)
                     print("<td>$uvalue</td>");                  
                     print("</tr>");
@@ -92,7 +106,7 @@
         </table>   
 </div></div>
 
-        <div > <br> <br>
+        <div > <br> <br><br><br><br>
         <div id='Leaderboard' class='flex-center flex-column'>     
 <table>
     <tr>
@@ -104,22 +118,32 @@
 
 <tbody>
     <?php
-    $count=1;
+    $count=0;
+    $prev = 1000000;
+    $rank = 0;
 
-    while ($count != 10){
-        $row = mysqli_fetch_row($result);
-
+    while ($rank != 10 && $row = mysqli_fetch_row($result)){
+        #$row = mysqli_fetch_row($result);
         print("<tr>");
-        print("<td>".$count." .</td>");   
+
+        if($row[1]<$prev){
+            $rank +=1;
+            $prev = $row[1];
+        }
+
+        print("<td>".$rank." .</td>");   
         foreach($row as $value){
         print("<td>$value</td>");}
         print("</tr>");
         $count++;
     }
+
+
+
         ?>
 </tbody>
 </table>
-<br><br>
+<br> <br><br><br><br>
 
      <a class="button" href="index.html">Go Home</a>
   </div></div>   
