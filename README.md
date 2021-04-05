@@ -27,7 +27,7 @@ Quiz Time is an app that allows the user to have its own account to test their k
 ### Some screenshot of the Quizapp
 Start page:
 
-<img src="Images/screen1.jpg" height="500">
+<img src="Images/screen1.jpg" height="500" width="500">
 
 Log in page when the user enter wrong password:
 
